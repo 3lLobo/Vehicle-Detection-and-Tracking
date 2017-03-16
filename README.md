@@ -107,7 +107,12 @@ Here's an example result showing the heatmap
 
 ###Discussion
 
-The code identifies cars on in an image but also a lot of false positives. Filtering out the false positives by applying a heatmap and averaging over the last frames has showed to be a solution for this video. In real life this might be dangerous since an actual vehicle might be filtered out. A better solution would be to use more features and a better classifier to get better results without filtering.
-Also the classifier has got to be trained on more then just vehicles. It has got to be able to identify trucks, motorbikes, bicycles, pedestrians and even animals.
+The code identifies cars on in an image but also a lot of false positives. Filtering out the false positives by applying a heatmap and averaging over the last frames has showed to be a solution for this video. In real life this might be dangerous since an actual vehicle might be filtered out. 
+This classifier uses the HOG, color and spatial features. Combining features makes the classifier more reliable. For better performance more features could be used, what would result in better results without filtering.
+
+There are several ways how to improve the classifier. The goal is to reduce the the amount of false positives and make predictions more reliable. On this specific video the classifier could be trained with images from the guard rail, since this area appears to be a weak point especially towards the end of the video. 
+A good method to reduce false positives is 'hard negative mining'. The classifier is run over images and the false positives are assembled to a training set. The classifier is then trained with this training set. This method is proven to reduce the detection of false positives and makes the classifier more reliable.
+
+Also the classifier has got to be trained on more then just vehicles. It has got to be able to identify trucks, motorbikes, bicycles, pedestrians and even animals to perform in real world.
 
 
